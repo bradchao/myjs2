@@ -1,9 +1,34 @@
 <script>
-let a = 11;
-if (a > 10) {
-    document.write("OK1");
-    document.write("XX2");
-}
+    function doThing(){
+        let year = document.getElementById("year").value;
+        year  = parseInt(year);
+        let isOK = false;
+        if (year % 4 == 0){
+            if (year % 100 == 0){
+                if (year % 400 == 0){
+                    // 29
+                    isOK = true;
+                }else{
+                    // 28
+                    isOK = false;
+                }
+            }else{
+                // 29, 22016
+                isOK = true;
+            }
+        }else{
+            // 28
+            isOK = false;
+        }
+        document.getElementById('result').innerHTML =
+            isOK?'閏年':'平年';
+
+
+    }
 
 
 </script>
+
+<input type="number" id="year" />
+<input type="button" value="是否閏年" onclick="doThing()"/>
+<span id="result"></span>
