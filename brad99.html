@@ -1,0 +1,20 @@
+<table border="1" width="100%">
+    
+<script>
+    for (let k=0; k<2; k++){
+        document.write("<tr>");
+        for (let j = 2; j <= 5; j++){
+            document.write("<td>");
+            for (let i=1; i<=9; i++){
+                let newj = j + k * 4;
+                let r = newj * i;
+                document.writeln(`${newj} x ${i} = ${r}<br>`);
+            }
+            document.write("</td>");
+        }
+        document.write("</tr>");
+    }
+</script>
+        
+    
+</table>
