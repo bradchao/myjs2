@@ -1,12 +1,24 @@
 <table border="1" width="100%">
     
 <script>
-    for (let k=0; k<2; k++){
+    let row = 4;
+    let start = 2;
+    let nTd = 4;
+
+    for (let k=0; k<row; k++){
         document.write("<tr>");
-        for (let j = 2; j <= 5; j++){
-            document.write("<td>");
+        for (let j = start; j < (start+nTd); j++){
+            let newj = j + k * nTd;
+            
+            let isPink;
+            if ( nTd % 2 == 0){
+                isPink = (newj + k ) % 2 == 0;
+            }else{
+                isPink = (newj) % 2 == 0;
+            }
+            
+            document.write("<td bgcolor='" + (isPink?"pink":"yellow") + "'>");
             for (let i=1; i<=9; i++){
-                let newj = j + k * 4;
                 let r = newj * i;
                 document.writeln(`${newj} x ${i} = ${r}<br>`);
             }
