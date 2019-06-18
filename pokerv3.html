@@ -1,0 +1,22 @@
+<script>
+let poker = [];
+for (let i=0; i<10; i++) poker[i] = i;
+for (let i = poker.length-1; i>0; i--){
+    let rand = parseInt(Math.random()*(i+1));
+    [poker[i],poker[rand]] = [poker[rand],poker[i]]; 
+}
+for (let i in poker){
+        document.write(poker[i] + "<br>");
+}
+
+document.write("<hr>");
+let plaers = [[],[],[],[]];
+for (let i=0; i<poker.length; i++){
+    players[i%4][parseInt(i/4)] = poker[i];
+}
+
+
+
+
+
+</script>

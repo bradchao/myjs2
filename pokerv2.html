@@ -1,0 +1,26 @@
+<script>
+    let poker = [];
+    let rand;
+    let isRepeat;
+    for (let i=0; i<6; i++){
+        do {
+            rand = parseInt(Math.random()*6);  // 0 - 51
+            isRepeat = false;
+            for (let j=0; j<i; j++){
+                if (poker[j] == rand){
+                    // 重複了
+                    isRepeat = true;
+                    break;
+                }
+            
+            }
+        }while (isRepeat);
+        poker[i] = rand;
+
+    }
+
+    for (let i in poker){
+        document.write(poker[i] + "<br>");
+    }
+
+</script>
