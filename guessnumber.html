@@ -1,0 +1,24 @@
+<script src="bradapis.js"></script>
+<script>
+let answer = createAnswer(3);
+console.log(answer);
+let log = '';
+function doGuess(){
+    let guess = document.getElementById('guess').value;
+    let result = checkAB(answer, guess);
+    alert(result);
+}
+
+function reset(){
+
+}
+
+</script>
+
+<h1>Guess Number Game</h1>
+<hr>
+<input type="number" id="guess" />
+<input type="button" onclick="doGuess()" value="Guess" />
+<input type="button" onclick="reset()" value="Reset" />
+<hr>
+<div id='log'></div>

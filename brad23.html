@@ -1,24 +1,5 @@
 <script src="bradapis.js"></script>
 <script>
-
-    // let id = 'A123456789';
-    // let regex = /^[A-Z][12][0-9]{8}$/;
-
-    let id = '11,22,33,44,aaa,bbb,777,,1234,55559487,55';
-    let regex = /[0-9]{1,5}/g;
-
-    let result = id.match(regex);
-    if (result == null){
-        document.write("none");
-    }else{
-        for(let v of result){
-            document.write(v + "<br>");
-        }
-    }
-
-
-
-
     function ckId(){
         let id = document.getElementById('id').value;
         let isRight = checkTWId(id);
