@@ -1,0 +1,19 @@
+<script>
+let counter = 0;
+let timer;
+
+function go(){
+    timer = setInterval(doThing, 1*1000);
+}
+function doThing(){
+    document.getElementById('counter').innerHTML = counter++;
+}
+function stopGame(){
+    clearInterval(timer);
+}
+
+</script>
+Timer : <span id='counter'></span>
+<hr>
+<input type="button" onclick="go()" value='Go!'/>
+<input type="button" onclick="stopGame()" value="Stop" />

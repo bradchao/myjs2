@@ -1,16 +1,41 @@
 <script src="bradapis.js"></script>
 <script>
 let answer = createAnswer(3);
-console.log(answer);
+//console.log(answer);
 let log = '';
+let times = 0;
 function doGuess(){
-    let guess = document.getElementById('guess').value;
+    times++;
+    let guessElement = document.getElementById('guess');
+    let guess = guessElement.value;
     let result = checkAB(answer, guess);
-    alert(result);
+
+    log += times + "." + guess + " => " + result + "<br>";
+    document.getElementById('log').innerHTML = log;
+
+    if (result == 3 + 'A0B'){
+        alert('WINNER!');
+        reset();
+    }else if (times == 10){
+        alert('Loser: answer is ' + answer);
+        reset();
+    }else{
+        alert(result);
+    }
+
+    guessElement.value = '';
+    guessElement.focus();
 }
 
 function reset(){
+    if (!confirm('Reset?')) return;
 
+    times = 0;
+    answer = createAnswer(3);
+    log = '';
+    document.getElementById('log').innerHTML = log;
+    document.getElementById('guess').value = '';
+    document.getElementById('guess').focus();
 }
 
 </script>
@@ -20,5 +45,10 @@ function reset(){
 <input type="number" id="guess" />
 <input type="button" onclick="doGuess()" value="Guess" />
 <input type="button" onclick="reset()" value="Reset" />
+<select id='num'>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+</select>
 <hr>
 <div id='log'></div>
