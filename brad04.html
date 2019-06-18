@@ -1,5 +1,10 @@
 <script>
     function doCal(){
+        let op = document.getElementById("op");
+        let opVal = op.selectedIndex;
+        alert(opVal);
+
+
         let x = document.getElementById("x").value;
         let y = document.getElementById("y").value;
         let result = document.getElementById("result");
@@ -12,7 +17,7 @@
     }
 </script>
 <input type="number" id="x" />
-<select>
+<select id="op">
     <option>+</option>
     <option>-</option>
     <option>x</option>

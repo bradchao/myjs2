@@ -1,0 +1,27 @@
+<script>
+    function sayYaV2(name = 'World'){
+        document.write(`Ya! ${name}<br>`);
+    }
+    function sayYa(ns){
+        for (let name of ns){
+            document.write(`Ya! ${name}<br>`);
+        }
+    }
+
+    function sayYaV3(...names){
+        //document.write(typeof names + Array.isArray(names) + "<br>");
+        for (let name of names){
+            document.write(`Ya! ${name}<br>`);
+        }
+    }
+
+    let names = ['Brad', 'Tony', 'Peter'];
+    sayYa(names);
+    sayYaV2();
+    sayYaV2('Brad');
+
+    sayYaV3();
+    sayYaV3('A');
+    sayYaV3('A','B','C');
+
+</script>
