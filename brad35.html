@@ -7,15 +7,20 @@ let dx = 16; dy = 16;
 let bg = new Image();
 bg.src = 'bg.jpg';
 
-let ball = new Image();
+let ball1 = new Image();
+let ball2 = new Image();
+let ball3 = new Image();
+let ballImg = [ball1, ball2, ball3];
 let balls = [];
 
 bg.onload = function(){
     ctx.drawImage(bg, 0, 0);
-    ball.src = 'ball.png';
-    ball.onload = function(){
-        ctx.drawImage(ball, ballX, ballY);
-    }
+    ball1.src = 'ball1.png';
+    ball2.src = 'ball2.png';
+    ball3.src = 'ball3.png';
+    // ball1.onload = function(){
+    //     ctx.drawImage(ball, ballX, ballY);
+    // }
 }
 
 function refreshView(){
@@ -23,7 +28,7 @@ function refreshView(){
     ctx.drawImage(bg, 0, 0);
 
     for (let i=0; i<balls.length; i++){       
-        ctx.drawImage(ball, balls[i].x, balls[i].y);    
+        ctx.drawImage(ballImg[balls[i].img], balls[i].x, balls[i].y);    
     }
     
 
@@ -51,7 +56,8 @@ canvas.onmousedown = function(e){
         x: e.offsetX - 24,
         y: e.offsetY - 24,
         dx : 8,
-        dy : 8
+        dy : 8,
+        img : parseInt(Math.random()*3)
     };
     balls[balls.length] = ballObj;
 }
