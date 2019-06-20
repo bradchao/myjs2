@@ -1,0 +1,45 @@
+<h1 id='head'></h1>
+<hr>
+<canvas id='canvas' width='480' height='320' style='border: 1px solid black'></canvas>
+<input type="button" onclick='clearCanvas()' value="Clear" />
+<input type="button" onclick='moveBall()' value="Move Ball" />
+<script>
+    head.innerHTML = 'Brad Big Company';
+    let ctx = canvas.getContext('2d');    // 渲染
+    let isDrag = false;
+ 
+    function clearCanvas(){
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+    }
+
+    canvas.onmouseup = function(e){
+        isDrag = false;
+    };
+    canvas.onmousedown = function(e){
+        isDrag = true;
+        ctx.strokeStyle = 'rgb(0,0,255)';
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY);
+    }
+    canvas.onmousemove = function(e){
+        if (isDrag){
+            //console.log(e.offsetX + ", " + e.offsetY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+        }
+    }
+
+    let ball = new Image();
+    ball.src = "ball.png";
+    ball.onload = function(){
+        ctx.drawImage(ball, 240, 240);
+    }
+
+    function moveBall(){
+        ctx.clearRect(240,240,48,48);
+        //ball = null;
+        ctx.drawImage(ball, 0, 0);
+    }
+
+
+</script>
