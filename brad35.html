@@ -1,9 +1,7 @@
+<script src="bradapis.js"></script>
 <canvas id='canvas' width='480' height='320' style='border: 1px solid black'></canvas>
 <script>
 let ctx = canvas.getContext('2d');
-let ballX = 10, ballY = 10;
-let dx = 16; dy = 16;
-
 let bg = new Image();
 bg.src = 'bg.jpg';
 
@@ -12,15 +10,20 @@ let ball2 = new Image();
 let ball3 = new Image();
 let ballImg = [ball1, ball2, ball3];
 let balls = [];
+let ballObj = {
+        x: 0,
+        y: 0,
+        dx : 8,
+        dy : 8,
+        img : 0
+    };
+
 
 bg.onload = function(){
     ctx.drawImage(bg, 0, 0);
     ball1.src = 'ball1.png';
     ball2.src = 'ball2.png';
     ball3.src = 'ball3.png';
-    // ball1.onload = function(){
-    //     ctx.drawImage(ball, ballX, ballY);
-    // }
 }
 
 function refreshView(){
@@ -30,8 +33,6 @@ function refreshView(){
     for (let i=0; i<balls.length; i++){       
         ctx.drawImage(ballImg[balls[i].img], balls[i].x, balls[i].y);    
     }
-    
-
 }
 
 function go(){
@@ -52,14 +53,13 @@ function moveBall(obj){
 }
 
 canvas.onmousedown = function(e){
-    let ballObj = {
-        x: e.offsetX - 24,
-        y: e.offsetY - 24,
-        dx : 8,
-        dy : 8,
-        img : parseInt(Math.random()*3)
-    };
-    balls[balls.length] = ballObj;
+    let ballObject = clone(ballObj);
+
+    ballObject.x = e.offsetX;
+    ballObject.y = e.offsetY;
+    ballObject.img = parseInt(Math.random()*3);
+
+    balls[balls.length] = ballObject;
 }
 
 setInterval(refreshView, 30);
