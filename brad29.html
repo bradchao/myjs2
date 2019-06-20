@@ -1,0 +1,32 @@
+<script>
+let body = document.createElement('body');
+document.body = body;
+
+let head = document.createElement('h1');
+head.innerHTML = "Brad Big Company";
+document.body.appendChild(head);
+
+let table = document.createElement('table');
+body.appendChild(table);
+
+table.setAttribute('border','1');
+table.setAttribute('width', '100%');
+
+for (let k=0; k<2; k++){
+
+    let tr = document.createElement('tr');
+    table.appendChild(tr);
+
+    for (let i=2; i<6; i++){
+        let td = document.createElement('td');
+        tr.appendChild(td);
+        let newi = i + k * 4;
+        for (let j =1; j<=9; j++){
+            td.innerHTML += `${newi} x ${j} = ${newi*j}<br>`;
+        }
+    }
+
+}
+
+
+</script>

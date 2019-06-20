@@ -1,0 +1,26 @@
+<script>
+let person = {
+    name: 'Brad',
+    age: 18,
+    getInfo: function(){
+        return this.name + ":" + this.age;
+    }
+};
+
+let peter = {
+    name: 'Peter',
+    age: 20
+};
+
+let tony = {
+    name: 'Tony',
+    age: 24
+}
+
+document.write(person.getInfo.call(tony));
+
+
+
+
+
+</script>
