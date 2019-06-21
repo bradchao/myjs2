@@ -1,0 +1,42 @@
+<script src="bradapis.js"></script>
+<script>
+    function test1(){
+        window.open("", "myWindow", "width=200, height=100");
+    }
+    console.log(navigator.language);
+
+    function gotoBackend(){
+        let account = document.getElementById('account').value;
+        let passwd1 = document.getElementById('passwd1').value;
+        let passwd2 = document.getElementById('passwd2').value;
+        let twid = document.getElementById('twid').value;
+        
+        let ret = true;
+
+        return ret;
+    }
+
+    function checkSamePasswd(){
+    
+        let passwd1 = document.getElementById('passwd1').value;
+        let passwd2 = document.getElementById('passwd2').value;
+        if (passwd1.length > 0 && passwd2.length > 0 ){
+            if (passwd1 != passwd2){
+                alert('not same');
+            }
+        }
+    }
+
+</script>
+<input type="button" onclick="test1()" value="Test1" /><br>
+
+<form id='myform' action="test1.php" onsubmit="return gotoBackend();" 
+    enctype="multipart/form-data" method='post'>
+    *Account: <input type="text" id="account" /><br>
+    *Password1: <input type="password" id='passwd1' onblur="checkSamePasswd()" /><br>
+    *Password2: <input type="password" id='passwd2' onblur="checkSamePasswd()" /><br>
+    *TW Id: <input type="text" id='twid' /><br>
+    Memo: <textarea id='memo'></textarea><br>
+    <input type="file" />
+    <input type="submit" value="register" />
+</form>

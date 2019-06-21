@@ -1,0 +1,50 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<h1 id='test1'>Brad Big Company</h1>
+<div id="container">
+    <h1>I am H1</h1>
+    <p>P1</p>
+    <hr>
+    <h1>I am H2</h1>
+    <p>P1</p>
+</div>
+<hr>
+<input type="button" value="Go!" id="go" /><br>
+<input type="text" class="inputText" /><br>
+<input type="text" class="inputText" /><br>
+<input type="text" class="inputText" /><br>
+
+<script>
+    // $(selector) => element(s)
+    // h1 $('h1'), a => $('a') => getElementByTag('a')
+    // id='test1' => $('#test1') => getElementById('test1')
+    // class='group' => $('.group') => getElementByClassName('group')
+    // $('#container p')
+    $('#test1').click(function(){
+        $('#test1').css('color','blue').css('background-color','red');
+
+        let ps = $('p');
+        for (let p of ps){
+            p.style.color = 'blue';
+            p.style.backgroundColor = 'yellow';
+        }
+
+        $jObj = $(document.getElementById('container'));
+        $jObj.css('background-color', 'pink');
+
+    });
+
+    let isClickDisable = false;
+    $('#go').click(function(){
+        isClickDisable = !isClickDisable;
+        $(this).attr('disabled', isClickDisable);
+        setTimeout(toClickEnable, 3*1000);
+        $('.inputText').val('Hello, World');
+    });
+
+    function toClickEnable(){
+        isClickDisable = false;
+        $('#go').attr('disabled', isClickDisable);
+    }
+
+</script>
