@@ -50,11 +50,25 @@ function checkAB(ans, gus){
 }
 
 function clone(source){
-    if (typeof(source) != 'object') return null;
+    if (source== null || typeof(source) != 'object') return null;  
 
     let target = new Object();
     for (let attr in source){
-        target[attr] = source[attr];
+        if (typeof source[attr] != 'object'){
+            target[attr] = source[attr];
+        }else{
+            target[attr] = clone(source[attr]);
+        }
     }
     return target;
+}
+
+Date.prototype.getCWeek = function(){
+    let w = this.getDay();
+    let ws = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六',];
+    return ws[w];
+}
+
+Date.prototype.getTWYear = function(){
+    return this.getFullYear() - 1911;
 }

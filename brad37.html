@@ -1,0 +1,19 @@
+<script>
+let f = function(){
+    this.a = 1;
+    this.b = 2;
+}
+
+let obj = new f();  // {a:1, b:2}
+console.log(obj.a + ":" + obj.b);
+
+f.prototype.b = 3;
+f.prototype.c = 4;
+
+console.log(obj.a);
+console.log(obj.b);
+console.log(obj.c);
+
+
+
+</script>

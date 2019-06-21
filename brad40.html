@@ -1,0 +1,39 @@
+<script>
+let bike = function(name, speed){
+    console.log("bike()");
+    this.name = name;
+    this.speed = speed;
+}
+bike.chSpeed = function(speed){
+    this.speed = speed;
+    console.log("bike:chSpeed()");
+}
+
+bike.prototype.chSpeed = function(speed){
+    console.log("prototype:chSpeed()");
+}
+
+let b1 = new bike("brad", 12);
+b1.chSpeed = function(speed){
+    console.log("b1:chSpeed()");
+}
+
+let b2 = new bike("Alen", 34);
+
+b1.chSpeed(123);
+b2.chSpeed(123);
+
+bike.prototype.chName = function(){
+    
+}
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,24 @@
+<script>
+let bike = function(){
+    console.log("new a bike");
+    this.a = 12;
+    this.b = 34;
+}
+
+let b1 = new bike();
+
+bike.prototype.x = 111;
+console.log(b1.x);
+
+bike.prototype.b = 222;
+console.log(b1.b);      // shadow
+
+let b2 = new bike();
+b2.a = 56; b2.c = 78;
+console.log(b2.a);
+console.log(b2.b);
+console.log(b2.c);
+console.log(b2.x);
+
+
+</script>

@@ -1,0 +1,60 @@
+<script src="bradapis.js"></script>
+<script>
+let bike = {
+    a : 11,
+    b : 22,
+    m1: function(){
+        console.log("bike:m1()" + this.a);
+    }
+}
+
+let person = {
+    name: '',
+    mybike: Object.create(bike)
+}
+let b1 = Object.create(bike);
+for (let key in b1){
+    console.log(key + ":" + b1[key]);
+}
+
+let b2 = bike.constructor();    // new Object()
+for (let key in b2){
+    console.log(key + ":" + b2[key]);
+}
+
+let b3 = clone(bike);
+for (let key in b3){
+    console.log(key + ":" + b3[key]);
+}
+
+let p1 = clone(person);
+p1.name = 'Brad';
+p1.mybike.a = 33;
+console.log(p1.name + ":" + p1.mybike.a);
+
+
+let p2 = clone(person);
+p2.name = 'Kevin';
+p2.mybike.a = 44;
+console.log(p1.name + ":" + p1.mybike.a);
+console.log(p2.name + ":" + p2.mybike.a);
+
+let p3 = Object.create(person);
+p3.name = 'Brad';
+p3.mybike.a = 33;
+console.log(p3.name + ":" + p3.mybike.a);
+
+let p4 = Object.create(person);
+p4.name = 'Kevin';
+p4.mybike.a = 44;
+console.log(p3.name + ":" + p3.mybike.a);
+console.log(p4.name + ":" + p4.mybike.a);
+
+console.log(p1.mybike === p2.mybike);
+console.log(p2.mybike === p4.mybike);
+
+p1.mybike.m1();
+p2.mybike.m1();
+
+
+</script>

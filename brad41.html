@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<script src="bradapis.js"></script>
+<script>
+function showNow(){
+    let now = new Date();
+    let nowString = "民國" + now.getTWYear() + "年" +
+        (now.getMonth()+1) + "月" +
+        now.getDate() + "日 " +
+        now.getCWeek() + " " + 
+        now.getHours() + ":" + 
+        now.getMinutes() + ":" + 
+        now.getSeconds();
+    document.getElementById('now').innerHTML = nowString;
+}
+
+let a1 = 3.4;
+let a2 = 3;
+let a3 = 3.7;
+console.log(a1 + " : " + Math.ceil(a1));
+console.log(a2 + " : " + Math.ceil(a2));
+console.log(a3 + " : " + Math.ceil(a3));
+
+
+
+setInterval(showNow, 500);
+</script>
+目前日期時間: <span id='now'></span>
