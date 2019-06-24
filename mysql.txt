@@ -1,0 +1,35 @@
+Number
+Integer:
+1. INT => 2^32 => -21億~+21億
+2. TINYINT => 2^8 => -128 ~ 127
+3. SMALLINT => 2^16 => -32768 ~ 32767
+4. MEDIUMINT => 2^24 => 正負8百多萬
+5. BIGINT => 
+
+float
+1. float => +- 10^38
+2. DOUBLE => +- 10^308
+
+String
+1. CHAR => 固定 => ~255
+2. VARCHAR => 變動 => ~255
+3. TEXT => 65535
+4. LONGTEXT => 42億
+
+DateTime
+1. DateTime => YYYY-MM-DD hh:mm:ss 1000-01-01 9999-12-31
+2. Date
+3. YEAR => 4: 1901 ~ 2155 2: 1970 ~ 2069
+4. TIME 
+
+
+
+
+
+
+
+
+
+
+
+
